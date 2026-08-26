@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +34,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
 
         html {
             scroll-behavior: smooth;
@@ -139,7 +141,7 @@
 
 
         /* =====================================================
-           NAV LINKS
+           NAVIGATION LINKS
         ====================================================== */
 
         nav ul {
@@ -149,6 +151,7 @@
 
             gap: 30px;
         }
+
 
         nav ul li a {
             color: var(--white);
@@ -165,6 +168,7 @@
 
             position: relative;
         }
+
 
         nav ul li a::after {
             content: "";
@@ -184,9 +188,11 @@
             transition: 0.3s;
         }
 
+
         nav ul li a:hover {
             color: var(--cyan);
         }
+
 
         nav ul li a:hover::after {
             width: 100%;
@@ -346,16 +352,6 @@
 
         /* =====================================================
            MEMBERS
-           
-           The JPG contains the member's:
-           - Photo
-           - Name
-           - Age
-           - Birthday
-           - Favorite color
-           - Hobbies
-
-           No additional text is displayed.
         ====================================================== */
 
         .members {
@@ -434,11 +430,15 @@
 
             gap: 30px;
 
-            max-width: 800px;
+            max-width: 1000px;
 
             margin: auto;
         }
 
+
+        /* =====================================================
+           LINK CARDS
+        ====================================================== */
 
         .link-card {
             padding: 40px 30px;
@@ -504,6 +504,10 @@
         }
 
 
+        /* =====================================================
+           LINK ICON
+        ====================================================== */
+
         .link-icon {
             font-size: 55px;
 
@@ -517,6 +521,10 @@
         }
 
 
+        /* =====================================================
+           LINK CARD TITLE
+        ====================================================== */
+
         .link-card h3 {
             font-size: 25px;
 
@@ -525,6 +533,10 @@
             color: var(--white);
         }
 
+
+        /* =====================================================
+           LINK CARD DESCRIPTION
+        ====================================================== */
 
         .link-card p {
             font-size: 15px;
@@ -540,7 +552,9 @@
 
 
         /* =====================================================
-           DRIVE BUTTON
+           BUTTON
+           
+           Used for both Google Drive and Canva links.
         ====================================================== */
 
         .drive-button {
@@ -681,7 +695,7 @@
             }
 
 
-            /* One JPG per row on phones */
+            /* One member JPG per row on phones */
 
             .members {
                 grid-template-columns: 1fr;
@@ -701,6 +715,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -717,6 +732,7 @@
             SAIS
         </div>
 
+
         <ul>
 
             <li>
@@ -725,11 +741,13 @@
                 </a>
             </li>
 
+
             <li>
                 <a href="#members">
                     Members
                 </a>
             </li>
+
 
             <li>
                 <a href="#links">
@@ -753,6 +771,7 @@
             <h1>
                 SAIS
             </h1>
+
 
             <p>
                 Welcome to our Group 6 website.
@@ -786,62 +805,80 @@
 
 
                 <!-- SCHAMILA JEWEL A. RODA -->
+
                 <div class="member">
+
                     <img
                         class="member-image"
                         src="./1.jpg"
                         alt="Schamila Jewel A. Roda"
                     >
+
                 </div>
 
 
                 <!-- JANDEE ASHLEY C. COSME -->
+
                 <div class="member">
+
                     <img
                         class="member-image"
                         src="./2.jpg"
                         alt="Jandee Ashley C. Cosme"
                     >
+
                 </div>
 
 
                 <!-- LORD GABRIELLE S. VALLOSO -->
+
                 <div class="member">
+
                     <img
                         class="member-image"
                         src="./3.jpg"
                         alt="Lord Gabrielle S. Valloso"
                     >
+
                 </div>
 
 
                 <!-- ADRIAN ROB PAQUIBULAN -->
+
                 <div class="member">
+
                     <img
                         class="member-image"
                         src="./4.jpg"
                         alt="Adrian Rob Paquibulan"
                     >
+
                 </div>
 
 
                 <!-- GRANT TIMOTHY N. ELINO -->
+
                 <div class="member">
+
                     <img
                         class="member-image"
                         src="./5.jpg"
                         alt="Grant Timothy N. Elino"
                     >
+
                 </div>
 
 
                 <!-- NUR RASHID G. JORDAN -->
+
                 <div class="member">
+
                     <img
                         class="member-image"
                         src="./6.jpg"
                         alt="Nur Rashid G. Jordan"
                     >
+
                 </div>
 
 
@@ -868,7 +905,9 @@
             <div class="links">
 
 
-                <!-- RADIO DRAMA -->
+                <!-- =================================================
+                     RADIO DRAMA
+                ================================================== -->
 
                 <div class="link-card">
 
@@ -876,15 +915,18 @@
                         🎙️
                     </div>
 
+
                     <h3>
                         Radio Drama
                     </h3>
+
 
                     <p>
                         Access our Radio Drama
                         files and materials
                         through Google Drive.
                     </p>
+
 
                     <a
                         class="drive-button"
@@ -898,7 +940,9 @@
                 </div>
 
 
-                <!-- ANIMATION -->
+                <!-- =================================================
+                     ANIMATION
+                ================================================== -->
 
                 <div class="link-card">
 
@@ -906,15 +950,18 @@
                         🎬
                     </div>
 
+
                     <h3>
                         Animation
                     </h3>
+
 
                     <p>
                         View our Animation
                         project and files
                         through Google Drive.
                     </p>
+
 
                     <a
                         class="drive-button"
@@ -923,6 +970,42 @@
                         rel="noopener noreferrer"
                     >
                         Open Animation
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     SUBANGAN EVALUATION
+                     
+                     This now opens the Canva website.
+                ================================================== -->
+
+                <div class="link-card">
+
+                    <div class="link-icon">
+                        📋
+                    </div>
+
+
+                    <h3>
+                        Subangan Evaluation
+                    </h3>
+
+
+                    <p>
+                        View our Subangan Evaluation
+                        website and presentation.
+                    </p>
+
+
+                    <a
+                        class="drive-button"
+                        href="https://psychxy.my.canva.site/energy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open Subangan Evaluation
                     </a>
 
                 </div>
@@ -949,4 +1032,5 @@
 
 
 </body>
+
 </html>
