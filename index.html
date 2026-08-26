@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SAIS | Group 6</title>
+
+    <style>
+
+        /* =====================================================
+           COLOR PALETTE
+        ====================================================== */
+
+        :root {
+            --blue: #1769e0;
+            --blue-dark: #071a3d;
+            --blue-light: #3b82f6;
+            --cyan: #22d3ee;
+            --violet: #8b5cf6;
+            --white: #ffffff;
+            --text-soft: #dbeafe;
+            --border: rgba(59, 130, 246, 0.35);
+        }
+
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* =====================================================
+           BODY
+        ====================================================== */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            min-height: 100vh;
+
+            color: var(--white);
+
+            background-image: url("./background.jpg");
+
+            background-size: cover;
+
+            background-position: center center;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+            position: relative;
+        }
+
+
+        /* =====================================================
+           DARK BLUE OVERLAY
+        ====================================================== */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 15, 40, 0.80),
+                    rgba(7, 40, 90, 0.60),
+                    rgba(30, 15, 70, 0.55)
+                );
+
+            z-index: -1;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 18px 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: rgba(3, 15, 40, 0.88);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.25);
+
+            z-index: 1000;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .logo {
+            font-size: 28px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            color: var(--white);
+
+            text-shadow:
+                0 0 15px rgba(34, 211, 238, 0.5);
+        }
+
+
+        /* =====================================================
+           NAV LINKS
+        ====================================================== */
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            padding: 8px 4px;
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -5px;
+
+            width: 0;
+
+            height: 2px;
+
+            background: var(--cyan);
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--cyan);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           HOME
+        ====================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 70px;
+        }
+
+
+        .hero-content {
+            max-width: 900px;
+
+            padding: 60px 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(4, 27, 65, 0.82),
+                    rgba(20, 40, 95, 0.68)
+                );
+
+            border: 1px solid rgba(59, 130, 246, 0.45);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 30px rgba(23, 105, 224, 0.15);
+        }
+
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 110px);
+
+            letter-spacing: 12px;
+
+            margin-bottom: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--white),
+                    var(--cyan),
+                    #a78bfa
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+        }
+
+
+        .hero p {
+            font-size: 20px;
+
+            line-height: 1.7;
+
+            color: var(--text-soft);
+
+            opacity: 0.95;
+        }
+
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ====================================================== */
+
+        section {
+            padding: 100px 8%;
+        }
+
+
+        .section-box {
+            width: 100%;
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 45px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(4, 24, 60, 0.80),
+                    rgba(11, 35, 80, 0.72)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+
+        .section-title {
+            text-align: center;
+
+            font-size: 40px;
+
+            margin-bottom: 40px;
+
+            letter-spacing: 2px;
+
+            color: var(--white);
+
+            position: relative;
+        }
+
+
+        .section-title::after {
+            content: "";
+
+            display: block;
+
+            width: 70px;
+
+            height: 4px;
+
+            margin: 14px auto 0;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--cyan),
+                    var(--violet)
+                );
+        }
+
+
+        /* =====================================================
+           MEMBERS
+           
+           The JPG contains the member's:
+           - Photo
+           - Name
+           - Age
+           - Birthday
+           - Favorite color
+           - Hobbies
+
+           No additional text is displayed.
+        ====================================================== */
+
+        .members {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 30px;
+        }
+
+
+        .member {
+            background: transparent;
+
+            border: none;
+
+            padding: 0;
+
+            margin: 0;
+
+            overflow: hidden;
+
+            transition: 0.35s;
+
+            border-radius: 18px;
+        }
+
+
+        .member:hover {
+            transform: translateY(-7px);
+
+            filter:
+                drop-shadow(
+                    0 15px 25px
+                    rgba(0, 0, 0, 0.35)
+                );
+        }
+
+
+        /* =====================================================
+           MEMBER JPG
+        ====================================================== */
+
+        .member-image {
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            border-radius: 18px;
+
+            object-fit: contain;
+
+            background: transparent;
+
+            transition: 0.35s;
+        }
+
+
+        .member:hover .member-image {
+            transform: scale(1.015);
+        }
+
+
+        /* =====================================================
+           LINKS
+        ====================================================== */
+
+        .links {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 30px;
+
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+
+        .link-card {
+            padding: 40px 30px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(23, 105, 224, 0.22),
+                    rgba(139, 92, 246, 0.14)
+                );
+
+            border: 1px solid rgba(59, 130, 246, 0.35);
+
+            border-radius: 24px;
+
+            transition: 0.35s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .link-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--cyan),
+                    var(--violet)
+                );
+        }
+
+
+        .link-card:hover {
+            transform: translateY(-9px);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(23, 105, 224, 0.34),
+                    rgba(139, 92, 246, 0.22)
+                );
+
+            border-color: var(--cyan);
+
+            box-shadow:
+                0 18px 35px rgba(0, 0, 0, 0.35),
+                0 0 25px rgba(34, 211, 238, 0.10);
+        }
+
+
+        .link-icon {
+            font-size: 55px;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(
+                    0 0 10px
+                    rgba(34, 211, 238, 0.25)
+                );
+        }
+
+
+        .link-card h3 {
+            font-size: 25px;
+
+            margin-bottom: 12px;
+
+            color: var(--white);
+        }
+
+
+        .link-card p {
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+
+            color: var(--text-soft);
+
+            opacity: 0.92;
+        }
+
+
+        /* =====================================================
+           DRIVE BUTTON
+        ====================================================== */
+
+        .drive-button {
+            display: inline-block;
+
+            padding: 13px 28px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--blue-light)
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            box-shadow:
+                0 6px 18px rgba(23, 105, 224, 0.30);
+        }
+
+
+        .drive-button:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--cyan),
+                    var(--blue-light)
+                );
+
+            color: #03132f;
+
+            transform: scale(1.05);
+
+            box-shadow:
+                0 8px 25px rgba(34, 211, 238, 0.30);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background:
+                rgba(3, 15, 40, 0.90);
+
+            border-top:
+                1px solid rgba(59, 130, 246, 0.30);
+        }
+
+
+        footer p {
+            font-size: 14px;
+
+            color: var(--text-soft);
+
+            opacity: 0.85;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 20px;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+
+            nav ul {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+
+            .hero {
+                padding-top: 150px;
+            }
+
+
+            .hero-content {
+                padding: 35px 20px;
+            }
+
+
+            .hero h1 {
+                letter-spacing: 6px;
+            }
+
+
+            .hero p {
+                font-size: 16px;
+            }
+
+
+            section {
+                padding: 70px 20px;
+            }
+
+
+            .section-box {
+                padding: 25px 18px;
+            }
+
+
+            .section-title {
+                font-size: 30px;
+
+                margin-bottom: 30px;
+            }
+
+
+            /* One JPG per row on phones */
+
+            .members {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+
+            .member-image {
+                border-radius: 14px;
+            }
+
+
+            .link-card {
+                padding: 35px 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav>
+
+        <div class="logo">
+            SAIS
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#members">
+                    Members
+                </a>
+            </li>
+
+            <li>
+                <a href="#links">
+                    Links
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================================
+         HOME
+    ====================================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                SAIS
+            </h1>
+
+            <p>
+                Welcome to our Group 6 website.
+                Explore our group members,
+                projects, activities, and
+                creative works.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MEMBERS
+         
+         Each JPG already contains the complete
+         information for that member.
+    ====================================================== -->
+
+    <section id="members">
+
+        <div class="section-box">
+
+            <h2 class="section-title">
+                Group 6 Members
+            </h2>
+
+
+            <div class="members">
+
+
+                <!-- SCHAMILA JEWEL A. RODA -->
+                <div class="member">
+                    <img
+                        class="member-image"
+                        src="./1.jpg"
+                        alt="Schamila Jewel A. Roda"
+                    >
+                </div>
+
+
+                <!-- JANDEE ASHLEY C. COSME -->
+                <div class="member">
+                    <img
+                        class="member-image"
+                        src="./2.jpg"
+                        alt="Jandee Ashley C. Cosme"
+                    >
+                </div>
+
+
+                <!-- LORD GABRIELLE S. VALLOSO -->
+                <div class="member">
+                    <img
+                        class="member-image"
+                        src="./3.jpg"
+                        alt="Lord Gabrielle S. Valloso"
+                    >
+                </div>
+
+
+                <!-- ADRIAN ROB PAQUIBULAN -->
+                <div class="member">
+                    <img
+                        class="member-image"
+                        src="./4.jpg"
+                        alt="Adrian Rob Paquibulan"
+                    >
+                </div>
+
+
+                <!-- GRANT TIMOTHY N. ELINO -->
+                <div class="member">
+                    <img
+                        class="member-image"
+                        src="./5.jpg"
+                        alt="Grant Timothy N. Elino"
+                    >
+                </div>
+
+
+                <!-- NUR RASHID G. JORDAN -->
+                <div class="member">
+                    <img
+                        class="member-image"
+                        src="./6.jpg"
+                        alt="Nur Rashid G. Jordan"
+                    >
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LINKS
+    ====================================================== -->
+
+    <section id="links">
+
+        <div class="section-box">
+
+            <h2 class="section-title">
+                Our Links
+            </h2>
+
+
+            <div class="links">
+
+
+                <!-- RADIO DRAMA -->
+
+                <div class="link-card">
+
+                    <div class="link-icon">
+                        🎙️
+                    </div>
+
+                    <h3>
+                        Radio Drama
+                    </h3>
+
+                    <p>
+                        Access our Radio Drama
+                        files and materials
+                        through Google Drive.
+                    </p>
+
+                    <a
+                        class="drive-button"
+                        href="https://drive.google.com/drive/folders/1xAB42tOXiqyIx7-A1MFvAGxBpeyv7clo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open Radio Drama
+                    </a>
+
+                </div>
+
+
+                <!-- ANIMATION -->
+
+                <div class="link-card">
+
+                    <div class="link-icon">
+                        🎬
+                    </div>
+
+                    <h3>
+                        Animation
+                    </h3>
+
+                    <p>
+                        View our Animation
+                        project and files
+                        through Google Drive.
+                    </p>
+
+                    <a
+                        class="drive-button"
+                        href="https://drive.google.com/drive/folders/1NRj8HRkaIUMbeNznVz8u-ZT0jJ1FGXnx"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open Animation
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 SAIS | Group 6
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
