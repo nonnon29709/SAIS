@@ -426,7 +426,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
+                repeat(3, minmax(0, 1fr));
 
             gap: 30px;
 
@@ -632,6 +632,13 @@
         /* =====================================================
            MOBILE
         ====================================================== */
+
+        @media (max-width: 950px) {
+
+            .links {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
 
         @media (max-width: 700px) {
 
